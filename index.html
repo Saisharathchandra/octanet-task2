@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avengers To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Avengers To-Do List</h1>
+        <ul class="todo-list">
+            <li><input type="checkbox" id="task1"><label for="task1">Save the world</label></li>
+            <li><input type="checkbox" id="task2"><label for="task2">Train with Thor</label></li>
+            <li><input type="checkbox" id="task3"><label for="task3">Visit Wakanda</label></li>
+            <li><input type="checkbox" id="task4"><label for="task4">Plan the next mission</label></li>
+        </ul>
+        <div class="input-group">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button class="btn-add">Add Task</button>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.btn-add').addEventListener('click', function() {
+            var input = document.getElementById('new-task');
+            var taskText = input.value.trim();
+            if (taskText) {
+                var newItem = document.createElement('li');
+                newItem.innerHTML = `<input type="checkbox"><label>${taskText}</label>`;
+                document.querySelector('.todo-list').appendChild(newItem);
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
